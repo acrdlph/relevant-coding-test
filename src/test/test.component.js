@@ -12,17 +12,14 @@ class Test extends Component {
   }
 
   componentDidMount() {
-    this.props.actions.test('test');
+    this.props.actions.test('test')
     this.props.actions.getData()
-    .then(data => {
-      this.data = data;
-      this.forceUpdate();
-    });
   }
 
   render() {
     let { testString } = this.props;
-    let { data } = this;
+    let { data } = this.props;
+    console.log(data);
 
     return (
       <div>
@@ -36,6 +33,7 @@ class Test extends Component {
 
 const mapStateToProps = state => ({
   testString: state.test.string,
+  data: state.test.data
 });
 
 const mapDispatchToProps = dispatch => ({

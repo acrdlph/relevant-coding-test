@@ -1,7 +1,8 @@
 import * as types from '../types';
 
 const initialState = {
-  string: null
+  string: null,
+  data: []
 };
 
 export default function test(state = initialState, action) {
@@ -11,8 +12,15 @@ export default function test(state = initialState, action) {
         ...state,
         string: action.payload
       };
-
+    case types.SET_DATA:
+      return {
+        ...state,
+        data: action.data
+      }
     default:
       return state;
   }
 }
+
+
+
